@@ -1,0 +1,27 @@
+
+> domain-projects@0.1.0 start
+> node server.js
+
+Server listening on http://localhost:4000
+SyntaxError: Unexpected token 'u', "username:tester" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at createStrictSyntaxError (/workspaces/Domain/node_modules/body-parser/lib/types/json.js:169:10)
+    at parse (/workspaces/Domain/node_modules/body-parser/lib/types/json.js:86:15)
+    at /workspaces/Domain/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/workspaces/Domain/node_modules/raw-body/index.js:238:16)
+    at done (/workspaces/Domain/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/workspaces/Domain/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+SyntaxError: Unexpected token 'u', "username:tester" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at createStrictSyntaxError (/workspaces/Domain/node_modules/body-parser/lib/types/json.js:169:10)
+    at parse (/workspaces/Domain/node_modules/body-parser/lib/types/json.js:86:15)
+    at /workspaces/Domain/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/workspaces/Domain/node_modules/raw-body/index.js:238:16)
+    at done (/workspaces/Domain/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/workspaces/Domain/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)

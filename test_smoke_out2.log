@@ -1,0 +1,81 @@
+Register (may already exist)
+register: { error: 'User exists or invalid' }
+
+Login
+login: {
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0ZXIiLCJpYXQiOjE3NjU0MzM3MzcsImV4cCI6MTc2NjAzODUzN30.er4DpapXtXgEyIWZUqWrFHP0DDKDCDHTP0y9X_AuNkQ',
+  user: { id: 1, username: 'tester' }
+}
+
+Create project
+project: {
+  id: 4,
+  name: 'Test Project',
+  owner: 1,
+  finished: 0,
+  created_at: '2025-12-11 06:15:37'
+}
+
+Create task
+task: {
+  id: 4,
+  project_id: 4,
+  title: 'First Task',
+  description: '',
+  assignee: 'tester',
+  status: 'todo',
+  created_at: '2025-12-11 06:15:37'
+}
+
+Update task
+updated task: {
+  id: 4,
+  project_id: 4,
+  title: 'First Task',
+  description: '',
+  assignee: 'tester',
+  status: 'inprogress',
+  created_at: '2025-12-11 06:15:37'
+}
+
+Post comment
+comment: {
+  id: 4,
+  task_id: 4,
+  author: 'tester',
+  body: 'Looks good',
+  created_at: '2025-12-11 06:15:37'
+}
+
+Post message
+message: {
+  id: 3,
+  project_id: 4,
+  author: 'tester',
+  body: 'Welcome to the project chat',
+  created_at: '2025-12-11 06:15:37'
+}
+
+Finish project
+finished: {
+  id: 4,
+  name: 'Test Project',
+  owner: 1,
+  finished: 1,
+  created_at: '2025-12-11 06:15:37'
+}
+
+Get project detail
+project detail: {
+  project: {
+    id: 4,
+    name: 'Test Project',
+    owner: 1,
+    finished: 1,
+    created_at: '2025-12-11 06:15:37',
+    owner_name: 'tester'
+  },
+  tasks: { todo: [], inprogress: [ [Object] ], done: [] }
+}
+
+Smoke test completed

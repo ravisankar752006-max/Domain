@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Domain - Projects</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:8px;background:#000;color:#eee}
+      .col{display:flex;gap:12px}
+      .panel{border:1px solid #222;padding:12px;border-radius:6px;background:#0b0b0b}
+      input,textarea,select{width:100%;margin-top:6px;background:#111;color:#eee;border:1px solid #222;padding:6px}
+      button{margin-top:8px;padding:8px}
+      .list-item{padding:8px;border-bottom:1px solid #111}
+      header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+      a{color:#7ecbff}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 style="margin:0">Domain — Project Boards</h2>
+      <div>
+        <a id="btn-signin" href="/auth.html">Sign in</a>
+        <span id="user-info" style="display:none"> <b id="who"></b> — <button id="btn-logout">Logout</button></span>
+      </div>
+    </header>
+
+    <div id="projects-top" class="panel" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Projects</h3>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input id="project-name" placeholder="New project name" style="max-width:360px" />
+        <button id="btn-create-project">Create Project</button>
+      </div>
+      <div id="projects-list" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+
+    <div class="col" style="margin-top:0">
+      <div style="flex:2" class="panel">
+        <h3 id="board-title">Board</h3>
+        <div id="board-controls" style="display:flex;gap:8px;align-items:center">
+          <input id="task-title" placeholder="Task title" />
+          <select id="task-assignee"><option value="">Unassigned</option></select>
+          <button id="btn-create-task">Add Task</button>
+          <button id="btn-finish-project" style="margin-left:8px">Mark Project Finished</button>
+        </div>
+        <div id="tasks-list" style="margin-top:12px;display:flex;gap:12px">
+          <div style="flex:1" class="panel"><h4>To Do</h4><div id="col-todo"></div></div>
+          <div style="flex:1" class="panel"><h4>In Progress</h4><div id="col-inprogress"></div></div>
+          <div style="flex:1" class="panel"><h4>Done</h4><div id="col-done"></div></div>
+        </div>
+        <hr />
+        <div id="comments-area"></div>
+        <hr />
+        <div id="project-chat" class="panel">
+          <h4>Project Chat</h4>
+          <div id="messages-list"></div>
+          <textarea id="message-body" placeholder="Write a message"></textarea>
+          <button id="btn-send-message">Send</button>
+        </div>
+        <hr />
+        <div class="panel">
+          <h4>Team</h4>
+          <div id="project-collaborators"></div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="add-collab-username" placeholder="username" />
+            <select id="add-collab-role"><option value="member">Member</option><option value="maintainer">Maintainer</option></select>
+            <button id="btn-add-collab">Add</button>
+          </div>
+        </div>
+        <hr />
+        <div class="panel">
+          <h4>Notifications</h4>
+          <div id="notifications-list"></div>
+        </div>
+      </div>
+    </div>
+        </div>
+        <hr />
+        <div id="comments-area"></div>
+        <hr />
+        <div id="project-chat" class="panel">
+          <h4>Project Chat</h4>
+          <div id="messages-list"></div>
+          <textarea id="message-body" placeholder="Write a message"></textarea>
+          <button id="btn-send-message">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign In - Domain</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:24px;background:#000;color:#eee}
+      .panel{max-width:420px;margin:24px auto;padding:18px;border-radius:8px;background:#111;border:1px solid #222}
+      input{width:100%;padding:8px;margin-top:8px;background:#222;color:#eee;border:1px solid #333}
+      button{margin-top:12px;padding:8px 12px}
+      a{color:#9cf}
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <h2>Sign In / Register</h2>
+      <div>
+        <label>Username</label>
+        <input id="username" placeholder="username" />
+        <label>Password</label>
+        <input id="password" type="password" placeholder="password" />
+        <div style="display:flex;gap:8px">
+          <button id="btn-login">Login</button>
+          <button id="btn-register">Register</button>
+        </div>
+        <p style="margin-top:12px">After logging in you'll return to the board: <a href="/">Open board</a></p>
+      </div>
+    </div>
+
+    <script>
+      const api = (path, opts={}) => fetch('/api'+path, Object.assign({headers:{'Content-Type':'application/json'}}, opts)).then(r=>r.json());
+      document.getElementById('btn-register').onclick = async ()=>{
+        const u = document.getElementById('username').value;
+        const p = document.getElementById('password').value;
+        const r = await api('/register', {method:'POST', body: JSON.stringify({username:u,password:p})});
+        if (r.ok) alert('Registered. Now login'); else alert(r.error||JSON.stringify(r));
+      };
+      document.getElementById('btn-login').onclick = async ()=>{
+        const u = document.getElementById('username').value;
+        const p = document.getElementById('password').value;
+        const r = await api('/login', {method:'POST', body: JSON.stringify({username:u,password:p})});
+        if (r.token){
+          localStorage.setItem('token', r.token);
+          localStorage.setItem('user', JSON.stringify(r.user));
+          window.location = '/';
+        } else alert(r.error||JSON.stringify(r));
+      };
+    </script>
+  </body>
+  </html>
